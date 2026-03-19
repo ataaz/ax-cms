@@ -73,8 +73,10 @@ function save() {
   if (isEditing.value) {
     const idx = pages.findIndex((p) => p.id === route.params.id)
     if (idx === -1) { error.value = 'Page not found.'; loading.value = false; return }
+    const existing = pages[idx]!
     pages[idx] = {
-      ...pages[idx],
+      id:         existing.id,
+      created_at: existing.created_at,
       title:      title.value.trim(),
       slug:       slug.value.trim(),
       content:    content.value.trim(),

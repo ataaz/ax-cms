@@ -26,7 +26,7 @@ const editor = useEditor({
 // Sync external value changes (e.g. when loading a post)
 watch(() => props.modelValue, (val) => {
   if (editor.value && editor.value.getHTML() !== val) {
-    editor.value.commands.setContent(val, false)
+    editor.value.commands.setContent(val)
   }
 })
 
